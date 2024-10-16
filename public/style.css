@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-color: #f4f4f4;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centro { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 90%;
+    max-width: 800px;
+    min-height: 90vh;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+#mensagem {
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.mensagem-sucesso {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.mensagem-erro {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+#formulario, #filtro {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#formulario h2, #filtro h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#formulario input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#formulario button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#formulario button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#filtro label {
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+#listaTarefas {
+    list-style-type: none;
+    width: 100%;
+}
+
+#listaTarefas li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+#listaTarefas li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#listaTarefas li:last-child {
+    border-bottom: none;
+}
+
+#listaTarefas button {
+    padding: 8px 12px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#listaTarefas .btn-editar {
+    background-color: #28a745;
+    color: #fff;
+}
+
+#listaTarefas .btn-editar:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+#listaTarefas .btn-excluir {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+#listaTarefas .btn-excluir:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #007BFF;
+}
+
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-content label input {
+    margin-right: 10px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus {
+    color: #000;
+}
+
+.modal-confirmacao {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-confirmacao button {
+    margin-left: 10px;
+}
+
+.btn-confirmar {
+    background-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-confirmar:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.btn-cancelar {
+    background-color: #6c757d;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cancelar:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .centro {
+        padding: 10px;
+    }
+
+    #formulario input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #formulario button {
+        width: 100%;
+        margin: 0;
+    }
+
+    #filtro label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #listaTarefas li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #listaTarefas button {
+        margin: 5px 0 0 0;
+    }
+}
+
+.mensagem {
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+.mensagem-sucesso {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.mensagem-erro {
+    background-color: #f8d7da;
+    color: #721c24;
+}
